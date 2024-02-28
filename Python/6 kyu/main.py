@@ -17,4 +17,30 @@
 #     return sum(x for x in range(number) if x % 3 == 0 or x % 5 == 0)
 
 
-# print(solution(10))
+# print(solution(10)). # 23
+
+# # Stop gninnipS My sdroW!: --------------------------------------------------- #
+# # Write a function that takes in a string of one or more words, and returns the
+# # same string, but with all words that have five or more letters reversed
+# # Just like the name of this Kata). Strings passed in will consist of only letters
+# # and spaces. Spaces will be included only when more than one word is present.
+
+
+# # My attempt
+# def spin_words(sentence):
+#     new_sentence = ""
+#     for word in sentence.split():
+#         print(word)
+#         if len(word) >= 5:
+#             new_sentence += " " + word[::-1]
+#         else:
+#             new_sentence += " " + word
+#     return new_sentence[1:]
+
+
+# # Best Practice
+# def spin_words(sentence):
+#     return " ".join([x[::-1] if len(x) >= 5 else x for x in sentence.split(" ")])
+
+
+# print(spin_words("Hey fellow warriors"))  # "Hey wollef sroirraw"
