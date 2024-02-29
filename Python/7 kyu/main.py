@@ -168,16 +168,71 @@
 
 # print(filter_list([1, "a", "b", 0, 15]))  # [1,0,15]
 
-# Mumbling: ------------------------------------------------------------------ #
-# This time no story, no theory. The examples below show you how to write
-# function accum:
+# # Mumbling: ------------------------------------------------------------------ #
+# # This time no story, no theory. The examples below show you how to write
+# # function accum:
 
 
-def accum(st):
-    i = 0
-    ret_st = ""
-    for item in st:
-        i += 1
+# # My attempt, Best Practice
+# def accum(st):
+#     return "-".join((item * (i + 1)).title() for i, item in enumerate(st))
 
 
-print(accum("RqaEzty"))
+# # Best Practice
+# def accum(s):
+#     return "-".join(c.upper() + c.lower() * i for i, c in enumerate(s))
+
+
+# print(accum("RqaEzty"))
+
+# # You're a square!: ---------------------------------------------------------- #
+# # You like building blocks. You especially like building blocks that
+# # aresquares. And what you even like more, is to
+# # arrange them into a square of square building blocks!
+
+
+# # My attempt
+# def is_square(n):
+#     if n < 0:
+#         return False
+#     if n == 0:
+#         return True
+#     return not bool((n**0.5) % 1)
+
+
+# # Best Practice
+# def is_square(n):
+#     import math
+
+#     return n > -1 and math.sqrt(n) % 1 == 0
+
+
+# print(is_square(-1))  # False
+# print(is_square(0))  # True
+# print(is_square(3))  # False
+# print(is_square(4))  # True
+# print(is_square(25))  # True
+
+# # Isograms: ------------------------------------------------------------------ #
+# # An isogram is a word that has no repeating letters, consecutive or
+# # non-consecutive. Implement a function that determines whether a string that
+# # contains only letters is an isogram. Assume the empty string is an isogram.
+# # Ignore letter case.
+
+
+# # My attempt
+# def is_isogram(string):
+#     lookup_list = []
+#     for i in string:
+#         if i.lower() in lookup_list:
+#             return False
+#         lookup_list.append(i.lower())
+#     return True
+
+# # Best Practice
+# def is_isogram(string):
+#     return len(string) == len(set(string.lower()))
+
+# print(is_isogram("Dermatoglyphics"))  # True
+# print(is_isogram("moose"))  # False
+# print(is_isogram("mOose"))  # False
